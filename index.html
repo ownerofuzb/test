@@ -4,6 +4,15 @@
   <title>Open PDF in Modal</title>
   <!-- Include Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Optional: Adjust the size of the modal content */
+    .modal-content {
+      width: 90%;
+      max-width: 800px;
+      height: 90%;
+      max-height: 600px;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,7 +29,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img id="pdfImage" src="" style="width: 100%; height: auto;">
+        <iframe id="pdfIframe" src="https://github.com/ownerofuzb/test/blob/main/elementary_homebook.pdf" frameborder="0" width="100%" height="100%"></iframe>
       </div>
     </div>
   </div>
@@ -33,9 +42,7 @@
 
 <script>
 document.getElementById('openModalButton').addEventListener('click', function() {
-  var pdfUrl = 'https://github.com/ownerofuzb/test/blob/main/elementary_homebook.pdf'; // Replace with your PDF URL
   $('#pdfModal').modal('show');
-  document.getElementById('pdfImage').src = pdfUrl.replace('.pdf', '_1.png'); // Assuming images are named as page_1.png, page_2.png, etc.
 });
 </script>
 
