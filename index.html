@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+
+</head>
+<body class="body">
+    <style>
+    .body{
+      background-color: yellow;
+      }
+
+      .project {
+    width: 60%;
+    height: 50%;
+    background-color: black;
+    position: fixed;
+    overflow: hidden;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    top: 50%; /* Adjust from top */
+    left: 50%; /* Adjust from left */
+    transform: translate(-50%, -50%); /* Centering trick */
+    max-height: 400px;
+    border-radius: 50px;
+  }
+ 
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 25%;
+    width: 70%;
+    justify-content: center;
+    align-self: center;
+
+  }
+
+
+    .photo{
+      width: 100px;
+      height: 100px;
+      background-color:violet;
+      border-radius: 30%;
+      position: relative;
+      margin-right: 5%;
+    }
+    .about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px; /* Add padding for better visibility */
+    width: 100%;
+    display: flex;
+  }
+    h3{
+      margin: auto;
+      display: flex;
+      color: rgb(84, 167, 174);
+      font-size: x-large;
+      position: relative;
+      top: 0%;
+    }
+    h1{
+      color: beige;
+    }
+    button{
+      border: solid 0px;
+      text-align: center;
+    }
+    .button {
+    padding: 4vw 4vw; /* Adjust padding using viewport units */
+    font-size: 2vh; /* Adjust font size using viewport units */
+    border-radius: 10px; /* Adding border radius for rounded corners */
+    border: none;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    margin-right: 5px; /* Adding margin using viewport units */
+    max-width: 40%;
+
+  }
+  .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.469);
+      z-index: 9999; /* Higher z-index to overlay everything */
+    }
+    .modal-content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      width: 80%; /* Adjust the width of the modal content */
+      height: 80%; /* Adjust the height of the modal content */
+      max-width: 800px; /* Maximum width of the modal content */
+      max-height: 600px; /* Maximum height of the modal content */
+      overflow: auto; /* Enable scrolling if content exceeds dimensions */
+    }
+    #pdfEmbed {
+      width: 100%;
+      height: 100%;
+    }
+    .close-btn {
+      position: relative;
+      float: right;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+    }
+    .title{
+      position:relative;
+
+      font-size:larger;
+    }
+
+  </style>
+<div class="modal" id="pdfModal">
+  <div class="modal-content">
+    <button id="closeModalButton" class="close-btn">Close</button>
+    <embed id="pdfEmbed" src="" type="application/pdf" />
+  </div>
+</div>
+
+    <div class="project">
+      <div class="about">
+      <div class="photo"></div>
+      <div class="title"><h1>elementary homebook</h1></div>
+    </div>
+
+      <div class="buttons">
+        <button onclick="openURL()" class="button"><h3><svg xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#2a8d5a" d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg></h3></button>
+        <button class="button" id="openModalButton"><h3><svg xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#327f81" d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></h3></button>
+        <button onclick="shareURL()" class="button"><h3><svg xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M352 224H305.5c-45 0-81.5 36.5-81.5 81.5c0 22.3 10.3 34.3 19.2 40.5c6.8 4.7 12.8 12 12.8 20.3c0 9.8-8 17.8-17.8 17.8h-2.5c-2.4 0-4.8-.4-7.1-1.4C210.8 374.8 128 333.4 128 240c0-79.5 64.5-144 144-144h80V34.7C352 15.5 367.5 0 386.7 0c8.6 0 16.8 3.2 23.2 8.9L548.1 133.3c7.6 6.8 11.9 16.5 11.9 26.7s-4.3 19.9-11.9 26.7l-139 125.1c-5.9 5.3-13.5 8.2-21.4 8.2H384c-17.7 0-32-14.3-32-32V224zM80 96c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16H400c8.8 0 16-7.2 16-16V384c0-17.7 14.3-32 32-32s32 14.3 32 32v48c0 44.2-35.8 80-80 80H80c-44.2 0-80-35.8-80-80V112C0 67.8 35.8 32 80 32h48c17.7 0 32 14.3 32 32s-14.3 32-32 32H80z"/></svg></h3></button> 
+      </div>
+
+    </div>
+
+
+  
+<script>
+  document.getElementById('openModalButton').addEventListener('click', function() {
+  document.getElementById('pdfEmbed').src = 'https://drive.google.com/file/d/15VsXA54J5RL1WlKpk7cyVNWGaZoT9bkz/view?usp=sharing';
+  document.getElementById('pdfModal').style.display = 'block';
+  document.body.style.overflow = 'hidden'; // Disable scrolling on the body
+});
+
+document.getElementById('closeModalButton').addEventListener('click', function() {
+  document.getElementById('pdfModal').style.display = 'none';
+  document.body.style.overflow = 'auto'; // Enable scrolling on the body
+});
+    function shareURL() {
+    // Check if the Web Share API is supported by the browser
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        text: 'Check out this website!',
+        url: window.location.href
+      })
+        .then(() => console.log('Shared successfully'))
+        .catch((error) => console.error('Error sharing:', error));
+    } else {
+      // If Web Share API is not supported, provide an alternative method or message
+      alert('Web Share API is not supported in this browser.');
+      // You can add your own fallback share functionality for unsupported browsers here
+    }
+  }
+  function openURL() {
+  // Replace 'https://www.example.com' with the URL you want to open
+  var url = 'https://drive.google.com/u/0/uc?id=15VsXA54J5RL1WlKpk7cyVNWGaZoT9bkz&export=download';
+  
+  // Open the URL in a new tab
+  window.open(url, '_blank');
+  }
+</script>
+</body>
+<footer>
+  <h1>hello</h1>
+</footer>
+</html>
