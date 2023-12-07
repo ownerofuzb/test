@@ -20,7 +20,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <embed id="pdfEmbed" src="" type="application/pdf" width="100%" height="500px" />
+        <iframe id="pdfIframe" src="" frameborder="0" width="100%" height="500px"></iframe>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
 
 <script>
 document.getElementById('openModalButton').addEventListener('click', function() {
-  document.getElementById('pdfEmbed').src = 'elementary_homebook.pdf';
+  document.getElementById('pdfIframe').src = 'elementary_homebook.pdf';
   $('#pdfModal').modal('show');
 });
 </script>
