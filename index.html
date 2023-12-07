@@ -4,6 +4,15 @@
   <title>Open PDF in Modal</title>
   <!-- Include Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Optional: Adjust the size of the modal content */
+    .modal-content {
+      width: 90%;
+      max-width: 800px;
+      height: 90%;
+      max-height: 600px;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,14 +29,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <canvas id="pdfCanvas" style="width: 100%; height: 100%;"></canvas>
+        <object id="pdfObject" type="application/pdf" data="" width="100%" height="100%"></object>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Include PDF.js library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 
 <!-- Include Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -36,30 +42,9 @@
 
 <script>
 document.getElementById('openModalButton').addEventListener('click', function() {
-  var pdfUrl = 'elementary_homebook.pdf'; // Replace with your PDF URL
+  var pdfUrl = 'https://github.com/ownerofuzb/test/blob/main/elementary_homebook.pdf'; // Replace with your PDF URL
   $('#pdfModal').modal('show');
-  
-  // Load the PDF
-  PDFJS.getDocument(pdfUrl).promise.then(function(pdf) {
-    // Fetch the first page
-    pdf.getPage(1).then(function(page) {
-      var scale = 1.5;
-      var viewport = page.getViewport({ scale: scale });
-
-      // Prepare canvas using PDF.js
-      var canvas = document.getElementById('pdfCanvas');
-      var context = canvas.getContext('2d');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-
-      // Render PDF page into canvas
-      var renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
-      page.render(renderContext);
-    });
-  });
+  document.getElementById('pdfObject').setAttribute('data', pdfUrl);
 });
 </script>
 
